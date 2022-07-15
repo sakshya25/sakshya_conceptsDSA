@@ -6,7 +6,7 @@
 //     }
 //     // cout<<n<<" " ;
 //     printn(n-1);   //tail recursion is a recursion when no further processing is executedb nnnnnnnnnnn v 
-//     cout<<n<<" ";
+//      cout<<n<<" ";
 // }
 // int main(){
 //     int n;
@@ -15,7 +15,7 @@
 //     return 0;
 // }
 
-// fibonacci
+// fibonacci series
 #include<bits/stdc++.h>
 void getfibo(int n){
 
