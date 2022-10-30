@@ -29,37 +29,74 @@
 
 // printing the subequences of the array whose sum is k
 
+// #include <bits/stdc++.h>
+// using namespace std;
+// // int sum=0;
+// void f(int index, vector<int> &vp, int sum, int arr[], int n, int target)
+// {
+//     if (index == n)
+//     {
+//         if (sum == target)
+//         {
+//             for (auto it : vp)
+//             {
+//                 cout << it << " ";
+//             }
+//                 cout << endl;
+//         }
+//         return;
+//     }
+
+//     vp.push_back(arr[index]);
+//     sum = sum + arr[index];
+//     f(index + 1, vp, sum, arr, n, target);
+//     vp.pop_back();
+//     sum = sum - arr[index];
+//     f(index + 1, vp, sum, arr, n, target);
+// }
+// int main()
+// {
+//     int arr[] = {3, 1, 2};
+//     int target = 3;
+//     int n = sizeof(arr) / sizeof(arr[0]);
+//     vector<int> vp;
+//     f(0, vp, 0, arr, n, target);
+//     return 0;
+// }
+
+// program to find number of subsequences whose sum is is k
+
 #include <bits/stdc++.h>
 using namespace std;
 // int sum=0;
-void f(int index, vector<int> &vp, int sum, int arr[], int n, int target)
+int f(int index,  int sum, int arr[], int n, int target)
 {
     if (index == n)
     {
         if (sum == target)
         {
-            for (auto it : vp)
-            {
-                cout << it << " ";
-            }
-                cout << endl;
+            return 1;
         }
-        return;
+        else 
+        return 0;
     }
 
-    vp.push_back(arr[index]);
+    
     sum = sum + arr[index];
-    f(index + 1, vp, sum, arr, n, target);
-    vp.pop_back();
+   int l= f(index + 1,  sum, arr, n, target);
+    
     sum = sum - arr[index];
-    f(index + 1, vp, sum, arr, n, target);
+    int r=f(index + 1,  sum, arr, n, target);
+
+    return l+r;
 }
 int main()
 {
     int arr[] = {3, 1, 2};
     int target = 3;
     int n = sizeof(arr) / sizeof(arr[0]);
-    vector<int> vp;
-    f(0, vp, 0, arr, n, target);
+    // vector<int> vp;
+    int l=f(0,0, arr, n, target);
+    cout<<l<<endl;
     return 0;
 }
